@@ -10,18 +10,10 @@ MaxHeap :: MaxHeap(int GivenSize){
 }
 
 bool MaxHeap :: isfull(){
-    if( size == MAX_SIZE)return true;
+    if( size == MAX_SIZE)
+    return true;
     return false;
 }
-
- void MaxHeap :: insertItem(int data){
-    if (isfull){
-        cout<<"HEAP IS FULL";
-        return;
-    }
-    heap[++last]=data;
-    shiftUp(last);
- }
 
  void MaxHeap :: shiftUp(int index){
 
@@ -32,6 +24,17 @@ bool MaxHeap :: isfull(){
         shiftUp(index); //recursion 
     }
  }
+
+
+ void MaxHeap :: insertItem(int data){
+    if (isfull()){
+        cout<<"HEAP IS FULL";
+        return;
+    }
+    heap[++last]=data;
+    shiftUp(last);
+ }
+
 
   inline MaxHeap :: ~MaxHeap(){
       delete [] heap;

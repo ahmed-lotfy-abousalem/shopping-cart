@@ -5,15 +5,16 @@ class MaxHeap {
 
 public: 
 
-MaxHeap();
+MaxHeap(int GivenSize);
 ~MaxHeap();
-bool isEmpty();
+bool isEmpty() const;
 int getMax();
-void insertItem();
-void shiftUp();
-void ShiftDown();
+void insertItem(int data);
+void shiftUp(int index);
+void ShiftDown(int index);
 int extractMax();
 void deleteAll();
+bool  isfull();
 
 
 private :
