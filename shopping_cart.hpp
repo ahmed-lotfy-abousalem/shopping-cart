@@ -17,8 +17,15 @@ void insertItem();
 void shiftUp();
 void shiftdown();
 int extractMax();
-void deleteAll()
-;
+void deleteAll(){
+int* tempHeap = new int[MAX_SIZE];
+ for (int i = 0; i < size; ++i) {
+            tempHeap[i] = heap[i];
+        }
+delete[] heap;
+heap = tempHeap;
+size = 0;
+}
 ~MaxHeap();
 
 
