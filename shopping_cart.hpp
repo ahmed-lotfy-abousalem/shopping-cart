@@ -9,13 +9,14 @@ private:
 public: 
 
 MaxHeap();
+~MaxHeap();
 bool isEmpty() const {
         return size == 0;
     }
 int getMax();
 void insertItem();
 void shiftUp();
-void shiftdown();
+void ShiftDown();
 int extractMax();
 void deleteAll(){
     int* tempHeap = new int[MAX_SIZE];
