@@ -2,18 +2,13 @@
 
 using namespace std;
 
-class Heap{
+class MaxHeap{
 private:
     int last;
     int capacity;
     int *arr;
 public:
-    Heap(int size){
-      last = -1;
-      capacity = size;
-      arr = new int[size];
-    }
-    ~Heap(){
+    ~MaxHeap(){
       delete [] arr;
     }
 
