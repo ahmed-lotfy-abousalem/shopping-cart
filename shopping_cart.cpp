@@ -35,8 +35,6 @@ private:
         }
       }
 
-};
-
 bool isEmpty() const {
         return size == 0;
     }
@@ -49,3 +47,6 @@ void deleteAll(){
     heap = tempHeap;
     size = 0;
 }
+
+};
+
