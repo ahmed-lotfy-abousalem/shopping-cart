@@ -14,8 +14,11 @@ void shiftUp();
 void ShiftDown();
 int extractMax();
 void deleteAll();
-~MaxHeap();
 
 
-
+private :
+static const int MAX_SIZE = 100;
+    int* heap;  
+    int size;
+    int last; 
 };

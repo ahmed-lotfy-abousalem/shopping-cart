@@ -1,24 +1,48 @@
 #include <iostream>
-
+#include "shopping_cart.hpp"
 using namespace std;
 
-class MaxHeap{
-private:
-    static const int MAX_SIZE = 100;
-    int* heap;  
-    int size;
-    int last; 
-    public:
-    ~MaxHeap(){
+
+MaxHeap :: MaxHeap(int GivenSize){
+    heap = new int[GivenSize];
+    this->size = GivenSize;
+    last= -1;
+}
+
+bool MaxHeap :: isfull(){
+    if( size == MAX_SIZE)return true;
+    return false;
+}
+
+ void MaxHeap :: insertItem(int data){
+    if (isfull){
+        cout<<"HEAP IS FULL";
+        return;
+    }
+    heap[++last]=data;
+    shiftUp(last);
+ }
+
+ void MaxHeap :: shiftUp(int index){
+
+    if(index<0)return;
+    int parent = (index - 1)/2 ;
+    if(parent >= 0 && heap[parent] < heap[index]){
+        swap(heap[parent],heap[index]);
+        shiftUp(index); //recursion 
+    }
+ }
+
+  inline MaxHeap :: ~MaxHeap(){
       delete [] heap;
     }
 
 
-    void ShiftDown(int index){
+    void MaxHeap :: ShiftDown(int index){
       int largest = index;
 
-      int left = (2 * x) + 1;
-      int right = (2 * x) + 2;
+      int left = (2 * index) + 1;
+      int right = (2 * index) + 2;
 
       if(left <= last && heap[left]>heap[largest]){
           largest= left;
@@ -35,10 +59,10 @@ private:
         }
       }
 
-bool isEmpty() const {
+bool MaxHeap :: isEmpty() const {
         return size == 0;
     }
-void deleteAll(){
+void MaxHeap :: deleteAll(){
     int* tempHeap = new int[MAX_SIZE];
     for (int i = 0; i < size; ++i) {
         tempHeap[i] = heap[i];
@@ -48,5 +72,4 @@ void deleteAll(){
     size = 0;
 }
 
-};
 
