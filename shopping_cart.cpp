@@ -35,12 +35,6 @@ bool MaxHeap :: isfull(){
     shiftUp(last);
  }
 
-
-  inline MaxHeap :: ~MaxHeap(){
-      delete [] heap;
-    }
-
-
     void MaxHeap :: ShiftDown(int index){
       int largest = index;
 
@@ -77,5 +71,23 @@ void MaxHeap :: deleteAll(){
     heap = tempHeap;
     size = 0;
 }
+
+int MaxHeap:: getMax(){
+    return heap[0];
+}
+
+int MaxHeap::extractMax(){
+    
+    if (isEmpty()){
+        cout << "heap is empty" << endl;
+        return;
+    }
+
+    swap(heap[0],heap[last]);
+
+}
+
+
+
 
 
