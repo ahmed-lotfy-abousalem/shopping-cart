@@ -84,6 +84,8 @@ int MaxHeap::extractMax(){
     }
 
     swap(heap[0],heap[last]);
+    last--;
+    ShiftDown(heap[0]);
 
 }
 
