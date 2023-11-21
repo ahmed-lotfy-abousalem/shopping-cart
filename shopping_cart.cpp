@@ -60,7 +60,10 @@ bool MaxHeap :: isfull(){
       }
 
 bool MaxHeap :: isEmpty() const {
-        return size == 0;
+        if(last == -1) return true;
+        else{
+        return false;
+        }
     }
 void MaxHeap :: deleteAll(){
     int* tempHeap = new int[MAX_SIZE];
