@@ -8,6 +8,11 @@ MaxHeap :: MaxHeap(int GivenSize){
     this->size = GivenSize;
     last= -1;
 }
+  
+inline MaxHeap :: ~MaxHeap(){
+      delete [] heap;
+    }
+
 
 bool MaxHeap :: isfull(){
     if( size == MAX_SIZE)return true;
@@ -33,9 +38,6 @@ bool MaxHeap :: isfull(){
     }
  }
 
-  inline MaxHeap :: ~MaxHeap(){
-      delete [] heap;
-    }
 
 
     void MaxHeap :: ShiftDown(int index){
