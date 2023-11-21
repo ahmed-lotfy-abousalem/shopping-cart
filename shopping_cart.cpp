@@ -4,12 +4,12 @@ using namespace std;
 
 class MaxHeap{
 private:
-    int last;
-    int capacity;
-    int *arr;
-public:
+    static const int MAX_SIZE = 100;
+    int* heap;  
+    int size;
+    public:
     ~MaxHeap(){
-      delete [] arr;
+      delete [] heap;
     }
 
 
@@ -19,17 +19,17 @@ public:
       int left = (2 * x) + 1;
       int right = (2 * x) + 2;
 
-      if(left <= last && arr[left]>arr[largest]){
+      if(left <= last && heap[left]>heap[largest]){
           largest= left;
           
         }
-      if(right <= last && arr[right]>arr[largest]){
+      if(right <= last && heap[right]>heap[largest]){
           largest = right;
         }
       if(largest != index){
-          int temp=arr[index];
-          arr[index]=arr[largest];
-          arr[largest]=temp;
+          int temp=heap[index];
+          heap[index]=heap[largest];
+          heap[largest]=temp;
           ShiftDown(largest);
         }
       }
