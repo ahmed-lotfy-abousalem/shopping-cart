@@ -37,3 +37,15 @@ private:
 
 };
 
+bool isEmpty() const {
+        return size == 0;
+    }
+void deleteAll(){
+    int* tempHeap = new int[MAX_SIZE];
+    for (int i = 0; i < size; ++i) {
+        tempHeap[i] = heap[i];
+        }
+    delete[] heap;
+    heap = tempHeap;
+    size = 0;
+}
