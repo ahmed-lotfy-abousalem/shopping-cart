@@ -1,6 +1,20 @@
 #include <iostream>
 using namespace std;
 
+class Product {
+
+    public:
+        Product();
+        Product(string ProductName, string ProductDescription, int ProductPrice, int CurrProductStock);
+
+        string ProductName;
+        string ProductDescription;
+        int ProductPrice;
+        bool ProductAvailability;
+        int CurrProductStock;
+
+    
+};
 class MaxHeap {
 
 public: 
@@ -8,8 +22,8 @@ public:
 MaxHeap(int GivenSize);
 ~MaxHeap();
 bool isEmpty() const;
-int getMax();
-void insertItem(int data);
+Product getMax();
+void insertItem(Product &prod);
 void shiftUp(int index);
 void ShiftDown(int index);
 int extractMax();
@@ -19,7 +33,7 @@ bool  isfull();
 
 private :
 static const int MAX_SIZE = 100;
-    int* heap;  
+    Product* Products;  
     int size;
-    int last; 
+    int capacity;
 };

@@ -3,10 +3,25 @@
 using namespace std;
 
 
-MaxHeap :: MaxHeap(int GivenSize){
-    heap = new int[GivenSize];
-    this->size = GivenSize;
-    last= -1;
+Product :: Product(){
+    this->ProductPrice = 0;
+    this->ProductAvailability = 0;
+    this->CurrProductStock = 0;
+}
+
+
+Product :: Product(string ProductName, string ProductDescription, int ProductPrice,int CurrProductStock){
+
+    this->ProductName = ProductName;
+    this->ProductDescription = ProductDescription;
+    this->ProductPrice = ProductPrice;
+    this->ProductAvailability = true;
+    this->CurrProductStock = CurrProductStock;
+
+}
+
+MaxHeap :: MaxHeap(int GivenSize): capacity(GivenSize),size(0){
+    Products = new Product[size];
 }
 
 bool MaxHeap :: isfull(){
@@ -17,22 +32,22 @@ bool MaxHeap :: isfull(){
 
  void MaxHeap :: shiftUp(int index){
 
-    if(index<0)return;
+    if(index==0)return;
     int parent = (index - 1)/2 ;
-    if(parent >= 0 && heap[parent] < heap[index]){
-        swap(heap[parent],heap[index]);
+    if(parent >= 0 && Products[parent].ProductPrice < Products[index].ProductPrice){
+        swap(Products[parent],Products[index]);
         shiftUp(index); //recursion 
     }
  }
 
 
- void MaxHeap :: insertItem(int data){
+ void MaxHeap :: insertItem( Product &prod){
     if (isfull()){
         cout<<"HEAP IS FULL";
         return;
     }
-    heap[++last]=data;
-    shiftUp(last);
+    Products[size++]=prod;
+    shiftUp(size-1);
  }
 
     void MaxHeap :: ShiftDown(int index){
@@ -41,39 +56,37 @@ bool MaxHeap :: isfull(){
       int left = (2 * index) + 1;
       int right = (2 * index) + 2;
 
-      if(left <= last && heap[left]>heap[largest]){
+      if(left <= size && Products[left].ProductPrice>Products[largest].ProductPrice){
           largest= left;
           
         }
-      if(right <= last && heap[right]>heap[largest]){
+      if(right <= size && Products[right].ProductPrice>Products[largest].ProductPrice){
           largest = right;
         }
       if(largest != index){
-          int temp=heap[index];
-          heap[index]=heap[largest];
-          heap[largest]=temp;
+          swap(Products[largest],Products[index]);
           ShiftDown(largest);
         }
       }
 
 bool MaxHeap :: isEmpty() const {
-        if(last == -1) return true;
+        if(size == 0) return true;
         else{
         return false;
         }
     }
 void MaxHeap :: deleteAll(){
-    int* tempHeap = new int[MAX_SIZE];
+    Product* tempHeap = new Product[MAX_SIZE];
     for (int i = 0; i < size; ++i) {
-        tempHeap[i] = heap[i];
+        tempHeap[i] = Products[i];
         }
-    delete[] heap;
-    heap = tempHeap;
+    delete[] Products;
+    Products = tempHeap;
     size = 0;
 }
 
-int MaxHeap:: getMax(){
-    return heap[0];
+Product MaxHeap:: getMax(){
+    return Products[0];
 }
 
 int MaxHeap::extractMax(){
@@ -83,9 +96,9 @@ int MaxHeap::extractMax(){
         return;
     }
 
-    swap(heap[0],heap[last]);
-    last--;
-    ShiftDown(heap[0]);
+    swap(Products[0],Products[size-1]);
+    size--;
+    ShiftDown(0);
 
 }
 
