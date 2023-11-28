@@ -29,10 +29,10 @@ MaxHeap(int GivenSize);
 MaxHeap(const MaxHeap& other) ;
 bool isEmpty() const;
 Product getMax();
-void insertproduct(const Product& prod);
+void insertItem(const Product& prod);
 void shiftUp(int index);
 void ShiftDown(int index);
-Product extractMaxProduct();//new
+Product extractMax();
 void deleteAll();
 bool  isfull();
 void displayHeap() const;
@@ -40,6 +40,7 @@ void displayProductCatalog() const;//new
 void addToCart(const Product& product);//new
 Product removeFromCart();//new
 void displayShoppingCart() const;//new
+Product extractMaxProduct();//new
 
 
 private :

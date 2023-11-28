@@ -48,7 +48,7 @@ void MaxHeap::shiftUp(int index) {
 }
 
 
-void MaxHeap::insertproduct(const Product& prod) {
+void MaxHeap::insertItem(const Product& prod) {
     if (isfull()) {
         cout << "HEAP IS FULL";
         return;
@@ -92,7 +92,7 @@ Product MaxHeap::getMax() {
     return Products[0];
 }
 
-Product MaxHeap::extractMaxProduct() {
+Product MaxHeap::extractMax() {
     if (size == 0)
         throw out_of_range("Heap is empty");
 

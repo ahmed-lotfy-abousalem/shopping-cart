@@ -9,25 +9,32 @@ int main()
     const int MaxHeapSize = 5; 
 
     
-   MaxHeap productCatalog(MaxHeapSize);
-MaxHeap shoppingCart(MaxHeapSize);
+    MaxHeap catalog(MaxHeapSize);
 
-// Adding products to the catalog
-Product prod1("Product1", "Description1", 10, 50);
-Product prod2("Product2", "Description2", 20, 30);
-Product prod3("Product3", "Description3", 15, 25);
+    
+    Product product1("Product A", "Description A", 50, 10);
+    Product product2("Product B", "Description B", 30, 20);
+    Product product3("Product C", "Description C", 80, 5);
 
-productCatalog.insertproduct(prod1);
-productCatalog.insertproduct(prod2);
-productCatalog.insertproduct(prod3);
+    
+    catalog.insertItem(product1);
+    catalog.insertItem(product2);
+    catalog.insertItem(product3);
 
-// Displaying the product catalog
-productCatalog.displayProductCatalog();
+    
+    catalog.displayHeap();
 
-// Adding products to the shopping cart
-shoppingCart.addToCart(productCatalog.extractMaxProduct());
-shoppingCart.addToCart(productCatalog.extractMaxProduct());
+    
+    Product maxProduct = catalog.getMax();
+    cout << "Maximum Price Product: " << maxProduct.ProductName << " - Price: " << maxProduct.ProductPrice
+        << ", Popularity: " << maxProduct.CurrProductStock << endl;
 
-// Displaying the shopping cart
-shoppingCart.displayShoppingCart();
+    Product removedMaxProduct = catalog.extractMax();
+    cout << "\nRemoved Maximum Price Product: " << removedMaxProduct.ProductName << " - Price: "
+        << removedMaxProduct.ProductPrice << ", Popularity: " << removedMaxProduct.CurrProductStock << endl;
+
+   
+    catalog.displayHeap();
+
+    return 0;
 }
