@@ -1,3 +1,4 @@
+
 #include <iostream>
 using namespace std;
 
@@ -23,17 +24,18 @@ MaxHeap(int GivenSize);
 ~MaxHeap();
 bool isEmpty() const;
 Product getMax();
-void insertItem(Product &prod);
+void insertItem(const Product& prod);
 void shiftUp(int index);
 void ShiftDown(int index);
-int extractMax();
+Product extractMax();
 void deleteAll();
 bool  isfull();
+void displayHeap() const;
 
 
 private :
 static const int MAX_SIZE = 100;
     Product* Products;  
-    int size;
     int capacity;
+     int size;
 };

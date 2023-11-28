@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "f:/ASU/YEAR 3/Semester 1/CSE331 - Data structures/Project/shopping-cart",
-      "program": "f:/ASU/YEAR 3/Semester 1/CSE331 - Data structures/Project/shopping-cart/build/Debug/outDebug",
+      "cwd": "e:/download/shopping cart",
+      "program": "e:/download/shopping cart/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
