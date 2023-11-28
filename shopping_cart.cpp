@@ -14,6 +14,15 @@ MaxHeap::MaxHeap(int GivenSize) : capacity(GivenSize), size(0) {
     Products = new Product[capacity];
 }
 
+MaxHeap :: MaxHeap(const MaxHeap& other) : size(other.size), capacity(other.capacity) {
+        Products = new Product[capacity];
+        for (int i = 0; i < size; ++i) {
+            Products[i] = other.Products[i];
+        }
+}
+
+
+
 bool MaxHeap::isfull() {
     if (size == MAX_SIZE)
         return true;
