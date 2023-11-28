@@ -14,11 +14,11 @@ MaxHeap::MaxHeap(int GivenSize) : capacity(GivenSize), size(0) {
     Products = new Product[capacity];
 }
 
-MaxHeap :: MaxHeap(const MaxHeap& other) : size(other.size), capacity(other.capacity) {
-        Products = new Product[capacity];
-        for (int i = 0; i < size; ++i) {
-            Products[i] = other.Products[i];
-        }
+MaxHeap::MaxHeap(const MaxHeap& other) : size(other.size), capacity(other.capacity) {
+    Products = new Product[capacity];
+    for (int i = 0; i < size; ++i) {
+        Products[i] = other.Products[i];
+    }
 }
 
 
@@ -71,7 +71,7 @@ void MaxHeap::ShiftDown(int index) {
         largest = right;
     }
     if (largest != index) {
-        swap(Products[largest],Products[index]);
+        swap(Products[largest], Products[index]);
         ShiftDown(largest);
     }
 }
@@ -83,8 +83,8 @@ bool MaxHeap::isEmpty() const {
     }
 }
 void MaxHeap::deleteAll() {
-    delete[] Products;   
-    Products = new Product[MAX_SIZE];  
+    delete[] Products;
+    Products = new Product[MAX_SIZE];
     size = 0;
 }
 
@@ -107,17 +107,17 @@ MaxHeap :: ~MaxHeap() {
     delete[] Products;
 }
 void MaxHeap::addToCart(const Product& product) {
-    insertProduct(product); 
+    insertProduct(product);
 }
 
 Product MaxHeap::removeFromCart() {
-    return extractMaxProduct(); 
+    return extractMaxProduct();
 }
 
 void MaxHeap::displayShoppingCart() const {
-   cout << "Shopping Cart (Max Heap):\n";
+    cout << "Shopping Cart (Max Heap):\n";
     for (int i = 0; i < size; ++i) {
-        cout << Products[i].ProductName << " - Price: " << Products[i].ProductPrice << ", Popularity: " << Products[i].CurrProductStock << endl;
+        cout << Products[i].ProductName << " - Price: " << Products[i].ProductPrice << ", Quantity: " << Products[i].CurrProductStock << endl;
     }
     cout << endl;
 }
@@ -137,7 +137,8 @@ void MaxHeap::removeFromCart(const string& productName) {
         Products[foundIndex] = Products[size - 1];
         size--;
         ShiftDown(foundIndex);
-    } else {
+    }
+    else {
         cout << "Product '" << productName << "' not found in the cart." << endl;
     }
 }
@@ -145,10 +146,10 @@ void MaxHeap::removeFromCart(const string& productName) {
 int MaxHeap::searchProductByName(const string& productName) const {
     for (int i = 0; i < size; ++i) {
         if (Products[i].ProductName == productName) {
-            return i; 
+            return i;
         }
     }
-    return -1; 
+    return -1;
 }
 
 
@@ -157,10 +158,11 @@ void MaxHeap::addProductToCart(const string& productName, MaxHeap& productCatalo
 
     if (productIndex != -1) {
         Product productToAdd = productCatalog.Products[productIndex];
-        productToAdd.ProductAvailability=1; 
-        insertProduct(productToAdd); 
+        productToAdd.CurrProductStock = 1;
+        insertProduct(productToAdd);
         cout << "Product '" << productName << "' added to the cart." << endl;
-    } else {
+    }
+    else {
         cout << "Product '" << productName << "' not found in the catalog." << endl;
     }
 }
@@ -171,7 +173,8 @@ void MaxHeap::updateQuantity(const string& productName, int newQuantity) {
     if (productIndex != -1) {
         Products[productIndex].CurrProductStock = newQuantity;
         cout << "Quantity of '" << productName << "' updated to " << newQuantity << " in the cart." << endl;
-    } else {
+    }
+    else {
         cout << "Product '" << productName << "' not found in the cart." << endl;
     }
 }
