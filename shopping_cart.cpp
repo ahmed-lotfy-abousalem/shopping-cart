@@ -71,9 +71,7 @@ void MaxHeap::ShiftDown(int index) {
         largest = right;
     }
     if (largest != index) {
-        int temp=Products[index];
-        Products[index]=Products[largest];
-        Products[largest]=temp;
+        swap(Products[largest],Products[index]);
         ShiftDown(largest);
     }
 }
