@@ -36,11 +36,14 @@ Product extractMax();
 void deleteAll();
 bool  isfull();
 void displayHeap() const;
-void displayProductCatalog() const;//new
-void addToCart(const Product& product);//new
-Product removeFromCart();//new
-void displayShoppingCart() const;//new
-Product extractMaxProduct();//new
+//NEWS
+void insertProduct(const Product& product);
+Product extractMaxProduct();
+void displayProductCatalog() const;
+void addToCart(const Product& product);
+Product removeFromCart();
+void displayShoppingCart() const;
+
 
 
 private :
