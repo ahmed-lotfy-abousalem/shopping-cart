@@ -29,7 +29,7 @@ bool MaxHeap::isfull() {
     return false;
 }
 
-void MaxHeap::displayHeap() const {
+void MaxHeap::displayProductCatalog() const {
     cout << "Product Catalog (Max Heap):\n";
     for (int i = 0; i < size; ++i) {
         cout << Products[i].ProductName << " - Price: " << Products[i].ProductPrice << ", Popularity: " << Products[i].CurrProductStock << endl;
@@ -48,7 +48,7 @@ void MaxHeap::shiftUp(int index) {
 }
 
 
-void MaxHeap::insertItem(const Product& prod) {
+void MaxHeap::insertProduct(const Product& prod) {
     if (isfull()) {
         cout << "HEAP IS FULL";
         return;
@@ -92,7 +92,7 @@ Product MaxHeap::getMax() {
     return Products[0];
 }
 
-Product MaxHeap::extractMax() {
+Product MaxHeap::extractMaxProduct() {
     if (size == 0)
         throw out_of_range("Heap is empty");
 
@@ -105,6 +105,17 @@ Product MaxHeap::extractMax() {
 }
 MaxHeap :: ~MaxHeap() {
     delete[] Products;
+}
+void MaxHeap::addToCart(const Product& product) {
+    insertProduct(product); 
+}
+
+Product MaxHeap::removeFromCart() {
+    return extractMaxProduct(); 
+}
+
+void MaxHeap::displayShoppingCart() const {
+    displayProductCatalog(); 
 }
 
 

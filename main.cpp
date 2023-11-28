@@ -17,24 +17,24 @@ int main()
     Product product3("Product C", "Description C", 80, 5);
 
     
-    catalog.insertItem(product1);
-    catalog.insertItem(product2);
-    catalog.insertItem(product3);
+    catalog.insertProduct(product1);
+    catalog.insertProduct(product2);
+    catalog.insertProduct(product3);
 
     
-    catalog.displayHeap();
+    catalog.displayProductCatalog();
 
     
     Product maxProduct = catalog.getMax();
     cout << "Maximum Price Product: " << maxProduct.ProductName << " - Price: " << maxProduct.ProductPrice
         << ", Popularity: " << maxProduct.CurrProductStock << endl;
 
-    Product removedMaxProduct = catalog.extractMax();
+    Product removedMaxProduct = catalog.extractMaxProduct();
     cout << "\nRemoved Maximum Price Product: " << removedMaxProduct.ProductName << " - Price: "
         << removedMaxProduct.ProductPrice << ", Popularity: " << removedMaxProduct.CurrProductStock << endl;
 
    
-    catalog.displayHeap();
+    catalog.displayProductCatalog();
 
     return 0;
 }
