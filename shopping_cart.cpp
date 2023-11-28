@@ -115,7 +115,11 @@ Product MaxHeap::removeFromCart() {
 }
 
 void MaxHeap::displayShoppingCart() const {
-    displayProductCatalog(); 
+   cout << "Shopping Cart (Max Heap):\n";
+    for (int i = 0; i < size; ++i) {
+        cout << Products[i].ProductName << " - Price: " << Products[i].ProductPrice << ", Popularity: " << Products[i].CurrProductStock << endl;
+    }
+    cout << endl;
 }
 
 
