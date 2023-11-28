@@ -3,7 +3,6 @@
 using namespace std;
 
 
-// Classes for products
 
 class Product {
 
@@ -19,47 +18,7 @@ class Product {
 
     
 };
-class Category {
-public:
-    // Attributes: category name, product list, etc.
-};
 
-class ProductCatalog {
-public:
-    // Methods to manage products and categories.
-};
-
-//****************************************************************************************
-
-// Classes for Cart
-
-class CartItem {
-public:
-    // Attributes: product, quantity, price, etc.
-};
-
-class ShoppingCart {
-public:
-    // Methods to manage cart items: add, remove, update quantities, view cart, etc.
-};
-//******************************************************************************************
-
-// Classes for Checking out
-class Payment {
-public:
-    // Payment methods: credit card, PayPal, etc.
-};
-
-class Order {
-public:
-    // Attributes: cart, shipping details, total amount, etc.
-};
-
-class Checkout {
-public:
-    // Methods to handle the checkout process: review cart, add shipping details, complete purchase, etc.
-};
-////*******************************************************************************************
 
 class MaxHeap {
 
@@ -77,6 +36,10 @@ Product extractMax();
 void deleteAll();
 bool  isfull();
 void displayHeap() const;
+void displayProductCatalog() const;//new
+void addToCart(const Product& product);//new
+Product removeFromCart();//new
+void displayShoppingCart() const;//new
 
 
 private :
