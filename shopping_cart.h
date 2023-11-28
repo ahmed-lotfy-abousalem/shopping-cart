@@ -22,6 +22,7 @@ public:
 
 MaxHeap(int GivenSize);
 ~MaxHeap();
+MaxHeap(const MaxHeap& other) ;
 bool isEmpty() const;
 Product getMax();
 void insertItem(const Product& prod);
