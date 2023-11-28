@@ -42,7 +42,7 @@ Product removeFromCart();
 void displayShoppingCart() const;
 void removeFromCart(const string& productName) ;
 void addProductToCart(const string& productName, MaxHeap& productCatalog);
-int MaxHeap::searchProductByName(const string& productName) const;
+int searchProductByName(const string& productName) const;
 //quantity
 void updateQuantity(const string& productName, int newQuantity);
 
