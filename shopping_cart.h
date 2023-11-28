@@ -40,7 +40,10 @@ void displayProductCatalog() const;
 void addToCart(const Product& product);
 Product removeFromCart();
 void displayShoppingCart() const;
-
+void removeFromCart(const string& productName) ;
+void addProductToCart(const string& productName, MaxHeap& productCatalog);
+int MaxHeap::searchProductByName(const string& productName) const;
+//quantity
 
 
 private :

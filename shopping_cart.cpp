@@ -122,6 +122,50 @@ void MaxHeap::displayShoppingCart() const {
     cout << endl;
 }
 
+void MaxHeap::removeFromCart(const string& productName) {
+    bool found = false;
+    int foundIndex = -1;
+    for (int i = 0; i < size; ++i) {
+        if (Products[i].ProductName == productName) {
+            found = true;
+            foundIndex = i;
+            break;
+        }
+    }
+
+    if (found) {
+        Products[foundIndex] = Products[size - 1];
+        size--;
+        ShiftDown(foundIndex);
+    } else {
+        cout << "Product '" << productName << "' not found in the cart." << endl;
+    }
+}
+
+int MaxHeap::searchProductByName(const string& productName) const {
+    for (int i = 0; i < size; ++i) {
+        if (Products[i].ProductName == productName) {
+            return i; 
+        }
+    }
+    return -1; 
+}
+
+
+void MaxHeap::addProductToCart(const string& productName, MaxHeap& productCatalog) {
+    int productIndex = productCatalog.searchProductByName(productName);
+
+    if (productIndex != -1) {
+        Product productToAdd = productCatalog.Products[productIndex]; 
+        insertProduct(productToAdd); 
+        cout << "Product '" << productName << "' added to the cart." << endl;
+    } else {
+        cout << "Product '" << productName << "' not found in the catalog." << endl;
+    }
+}
+
+
+
 
 
 
