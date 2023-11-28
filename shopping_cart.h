@@ -44,6 +44,7 @@ void removeFromCart(const string& productName) ;
 void addProductToCart(const string& productName, MaxHeap& productCatalog);
 int MaxHeap::searchProductByName(const string& productName) const;
 //quantity
+void updateQuantity(const string& productName, int newQuantity);
 
 
 private :

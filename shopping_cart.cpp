@@ -156,13 +156,26 @@ void MaxHeap::addProductToCart(const string& productName, MaxHeap& productCatalo
     int productIndex = productCatalog.searchProductByName(productName);
 
     if (productIndex != -1) {
-        Product productToAdd = productCatalog.Products[productIndex]; 
+        Product productToAdd = productCatalog.Products[productIndex];
+        productToAdd.ProductAvailability=1; 
         insertProduct(productToAdd); 
         cout << "Product '" << productName << "' added to the cart." << endl;
     } else {
         cout << "Product '" << productName << "' not found in the catalog." << endl;
     }
 }
+
+void MaxHeap::updateQuantity(const string& productName, int newQuantity) {
+    int productIndex = searchProductByName(productName);
+
+    if (productIndex != -1) {
+        Products[productIndex].CurrProductStock = newQuantity;
+        cout << "Quantity of '" << productName << "' updated to " << newQuantity << " in the cart." << endl;
+    } else {
+        cout << "Product '" << productName << "' not found in the cart." << endl;
+    }
+}
+
 
 
 
