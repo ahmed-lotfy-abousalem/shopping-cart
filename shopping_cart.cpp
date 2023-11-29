@@ -180,6 +180,14 @@ void MaxHeap::updateQuantity(const string& productName, int newQuantity) {
 }
 
 
+ostream& operator<<(ostream& os, const MaxHeap& heap) {
+    os << "Product Catalog (Max Heap):\n";
+    for (int i = 0; i < heap.size; ++i) {
+        os << heap.Products[i].ProductName << " - Price: " << heap.Products[i].ProductPrice << ", Popularity: " << heap.Products[i].CurrProductStock << endl;
+    }
+    os << endl;
+    return os;
+}
 
 
 

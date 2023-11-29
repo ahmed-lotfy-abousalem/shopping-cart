@@ -45,7 +45,7 @@ void addProductToCart(const string& productName, MaxHeap& productCatalog);
 int searchProductByName(const string& productName) const;
 //quantity
 void updateQuantity(const string& productName, int newQuantity);
-
+friend ostream& operator<<(ostream& os, const MaxHeap& heap);
 
 private :
 static const int MAX_SIZE = 100;
