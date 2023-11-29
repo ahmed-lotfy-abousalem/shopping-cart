@@ -37,7 +37,7 @@ void MaxHeap::displayProductCatalog() const {
     cout << endl;
 }
 
-void MaxHeap::shiftUp(int index) {
+void MaxHeap::shiftUp(int index) {  //lotfy
 
     if (index == 0)return;
     int parent = (index - 1) / 2;
@@ -48,12 +48,12 @@ void MaxHeap::shiftUp(int index) {
 }
 
 
-void MaxHeap::insertProduct(const Product& prod) {
+void MaxHeap::insertProduct(const Product& prod) {  // lotfy
     if (isfull()) {
         cout << "HEAP IS FULL";
         return;
     }
-    Products[size++] = prod;
+    Products[++size] = prod;
     shiftUp(size - 1);
 }
 
